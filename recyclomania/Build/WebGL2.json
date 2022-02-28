@@ -1,0 +1,16 @@
+{
+"companyName": "Game Dev Goose",
+"productName": "Recyclomania!",
+"productVersion": "0.1",
+"dataUrl": "WebGL2.data.unityweb",
+"wasmCodeUrl": "WebGL2.wasm.code.unityweb",
+"wasmFrameworkUrl": "WebGL2.wasm.framework.unityweb",
+"graphicsAPI": ["WebGL 2.0"],
+"webglContextAttributes": {"preserveDrawingBuffer": false},
+"splashScreenStyle": "Dark",
+"backgroundColor": "#8FDAFA",
+"cacheControl": {"default": "must-revalidate"},
+"developmentBuild": false,
+"multithreading": false,
+"unityVersion": "2019.4.0f1"
+}
