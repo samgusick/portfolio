@@ -1,141 +1,242 @@
-<!DOCTYPE html>
 <html>
+  <head>
+    <title>Sam Gusick's Portfolio</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="slideshow.css" />
+    <link rel="stylesheet" href="projects.css" />
+  </head>
 
-<head>
-    <title>Sam's Portfolio</title>
-    <link rel="stylesheet" href="/portfolio/style.css">
-</head>
-<main>
-    <h1>
-        Sam Gusick's Portfolio
-    </h1>
-</main>
+  <body>
+  <nav id="nav">
+    <img src="images/samPortrait.jfif" alt="Image">
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <div id="content">
+    <script type="text/javascript">
+// Initialize variables
+var slideIndex = 1;
+var slides = document.getElementsByClassName("slideshow-slide");
+var dots = document.getElementsByClassName("slideshow-dot");
 
-<body>
+// Set the interval to call the plusSlides function every 5 seconds
+setInterval(function() {
+    plusSlides(1);
+  }, 5000);
 
+// Show the first slide and dot
+showSlides(slideIndex);
 
-    <h2>
-        Games
-    </h2>
+// Next/previous controls
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
 
-    <script>
+// Thumbnail image controls
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+// Show the current slide and update the active dot
+function showSlides(n) {
+  // Ensure that the slide index is within bounds
+  if (n > slides.length) {
+    slideIndex = 1;
+  }
+  if (n < 1) {
+    slideIndex = slides.length;
+  }
+  // Hide all slides and dots
+  for (var i = 0; i < slides.length; i++) {
+    slides[i].classList.remove("active");
+  }
+  for (var i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  // Show the current slide and update the active dot
+  slides[slideIndex - 1].classList.add("active");
+  dots[slideIndex - 1].className += " active";
+}
+
 
     </script>
 
-    <div>
-        <div class="w3-example">
-            <h3>Toilet Paper Mayhem!</h3>
-            <a href="https://gamedevgoose.itch.io/toilet-paper-mayhem">
-                <div class="w3-code notranslate htmlHigh">
-                            <img class="img-overlay"  src="/portfolio/images/tpm.png" alt="TPM Game Logo">    
-                </div>
-            </a>
-            roll around in this pac man style 3d game where you need to collect as many toilet paper rolls as possible while avoiding customers, puddles and the constant depletion of your roll size. 
-        </div>
-
-
-
-
-
-        <div class="w3-example">
-            <h3>Recyclomania</h3>
-            <a href="https://gamedevgoose.itch.io/recyclomania">
-                <div class="w3-code notranslate htmlHigh">
-                    
-                        <img class="img-overlay"   src="/portfolio/images/recycle.png" alt="Recycling Game Logo">
-                    
-                </div>
-            </a>
-            Collect as many pieces of recycling as possible while avoiding trash and obstacles.
-        </div>
-
-
-
-        <div class="w3-example">
-            <h3>Unwind, Obstacle, Rewind.</h3>
-            <a href="https://gamedevgoose.itch.io/unwind-obstacle-rewind">
-                <div class="w3-code notranslate htmlHigh">
-                    
-                        <img class="img-overlay"   src="/portfolio/images/rewind.png" alt="Rewind Game Logo">
-                </div>
-            </a>
-
-            Using your roll of tape, swing, jump and solve puzzles in order to successfully rewrap yourself inside of a VHS tape.
-        </div>
-
-        <div class="w3-example">
-            <h3>Ascent</h3>
-            <a href="https://brobby50.itch.io/ascent">
-                <div class="w3-code notranslate htmlHigh">
-                    
-                        <img class="img-overlay"   src="/portfolio/images/ascent.png" alt="Rewind Game Logo">
-                    
-                </div>
-            </a>
-            Climb to the top of the tower using your special freeze/unfreezing ability in this 2D platformer. 
-        </div>
-
-        <div class="w3-example">
-            <h3>Leg Up</h3>
-            <a href="https://gamedevgoose.itch.io/leg-up-game">
-                <div class="w3-code notranslate htmlHigh">
-                    
-                        <img class="img-overlay"   src="/portfolio/images/legup.png" alt="Leg up Game Logo">
-                    
-                </div>
-            </a>
-            Play as a pair of legs, as you attempt to jump over hurdles and cross the finish line.
-        </div>
+    <div id="slideshow-container">
+      <div class="slideshow-slide active">
+        <img src="images/recycle.png" alt="Image 1" />
+        <div class="slideshow-caption">Caption for image 1</div>
+      </div>
+      <div class="slideshow-slide">
+        <img src="images/legup.png" alt="Image 2" />
+        <div class="slideshow-caption">Caption for image 2</div>
+      </div>
+      <div class="slideshow-slide">
+        <img src="images/ascent.png" alt="Image 3" />
+        <div class="slideshow-caption">Caption for image 3</div>
+      </div>
+      <a class="slideshow-prev" onclick="plusSlides(-1)">&#10094;</a>
+      <a class="slideshow-next" onclick="plusSlides(1)">&#10095;</a>
+    </div>
+    <div class="slideshow-dots-container">
+      <span class="slideshow-dot" onclick="currentSlide(1)"></span>
+      <span class="slideshow-dot" onclick="currentSlide(2)"></span>
+      <span class="slideshow-dot" onclick="currentSlide(3)"></span>
     </div>
 
+    <section id="about">
+      <h2>About Me</h2>
+      <p>
+        Hello, my name is [Your Name] and I am a computer science student at
+        [University Name]. I have a strong passion for programming and problem
+        solving, and have experience with a variety of programming languages
+        including C++, Python, and Java.
+      </p>
+  </section>
+    <!-- Project section -->
+<section id="projects">
+  <h2>Projects</h2>
 
+  <!-- Filter buttons -->
+  <button class="filter-btn" onclick="filterProjects('all')">All</button>
+  <button class="filter-btn" onclick="filterProjects('school')">School</button>
+  <button class="filter-btn" onclick="filterProjects('personal')">Personal</button>
+  <button class="filter-btn" onclick="filterProjects('game-development')">Game Development</button>
 
-    <h2>
-        Projects
-    </h2>
+  <!-- Project blocks -->
+  <div class="project-blocks">
 
-    <div class="w3-example" style="max-width: 500px;">
-        <h3>Blackboard Grade Calculator Chrome Extension</h3>
-        <a href="https://chrome.google.com/webstore/detail/blackboard-grades-uvm/lcollpogenmgdokchggaeoencofjkogj">
-            <div class="w3-code notranslate htmlHigh">
-                
-                    <img class="img-overlay"   src="/portfolio/images/blackboard.jpg" alt="Blackboard Project Logo">
-                
-            </div>
-        </a>
-
-        Securely scrapes a student's blackboard page, calculates their grades and display's them in an organized popup window.
+    <div class="project-block game-development">
+      <img src="images/tpm.png" alt="Toilet Paper Mayhem Game" />
+      <div class="project-text">
+        <h3>Toilet Paper Mayhem!</h3>
+        <p>roll around in this pac man style 3d game where you need to collect as many toilet paper rolls as possible while avoiding customers, puddles and the constant depletion of your roll size. 
+        </p>
+      </div>
     </div>
+
+    <div class="project-block game-development">
+      <img src="images/recycle.png" alt="Recyclomania" />
+      <div class="project-text">
+        <h3>Recyclomania</h3>
+        <p>Collect as many pieces of recycling as possible while avoiding trash and obstacles. 
+        </p>
+      </div>
     </div>
 
-    <div class="w3-example" style="max-width: 500px;">
-        <h3>DuckDuckGo Hider/Disguiser Chrome Extension</h3>
-        <a href="https://chrome.google.com/webstore/detail/duckduckgo-hiderdisguiser/peejgoigkpplepmhfloekijbnneikjcb">
-            <div class="w3-code notranslate htmlHigh">
-                
-                    <img class="img-overlay"   src="/portfolio/images/duckduckgo.jpg" alt="Blackboard Project Logo" >
-                
-            </div>
-        </a>
-        Switches the logo on DuckDuckGo to the google logo.
+    <div class="project-block game-development">
+      <img src="images/rewind.png" alt="Unwind, Obstacle, Rewind" />
+      <div class="project-text">
+        <h3>Unwind, Obstacle, Rewind</h3>
+        <p>Using your roll of tape, swing, jump and solve puzzles in order to successfully rewrap yourself inside of a VHS tape.</p>
+      </div>
     </div>
 
-    <h2>
-        Video Work
-    </h2>
-    <div class="w3-example" style="max-width: 600px;">
-        <h3>UVM A.R.C Informational Video</h3>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/q_WXlE6dekk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        Informational video about the new A.R.C. program at UVM. Contributed: Filming, Editing, Script writing, Narration, color correction. 
+    <div class="project-block game-development">
+      <img src="images/ascent.png" alt="Ascent" />
+      <div class="project-text">
+        <h3>Ascent</h3>
+        <p>Climb to the top of the tower using your special freeze/unfreezing ability in this 2D platformer. 
+        </p>
+      </div>
     </div>
-   
-    <div class="w3-example" style="max-width: 600px;">
-        <h3>Tecknow Smart Home Solutions Understanding your Smart Home Video </h3>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/QN8Gs4SUvAQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        Educational video on Tecknow, their mission, and Smart Homes as a whole. Contributed: Filming, Editing, Script writing, Narration, color correction. 
+
+    <div class="project-block game-development">
+      <img src="images/legup.png" alt="Leg Up" />
+      <div class="project-text">
+        <h3>Leg Up</h3>
+        <p>Play as a pair of legs, as you attempt to jump over hurdles and cross the finish line.
+ 
+        </p>
+      </div>
     </div>
-   
 
-</body>
+    <div class="project-block game-development">
+      <img src="images/tire and road bar.jfif" alt="Tireless" />
+      <div class="project-text">
+        <h3>Tireless</h3>
+        <p>A 3D endless runner about a tire rolling down the road and must move out of the way and jump over obstacles, collect coins to get a high score. With procedurally generated obstacles and coins to create a unique gameplay every run.
+        </p>
+      </div>
+    </div>
 
+    <div class="project-block personal">
+      <img src="images/blackboard.jpg" alt="UVM Blackboard Grade Calculator" />
+      <div class="project-text">
+        <h3>Blackboard Grade Calculator Chrome Extension
+        </h3>
+        <p>Securely scrapes a student's blackboard page, calculates their grades and display's them in an organized popup window. 
+        </p>
+      </div>
+    </div>
+
+    <div class="project-block personal">
+      <img src="images/duckduckgo.jpg" alt="duckduckgo hider" />
+      <div class="project-text">
+        <h3>DuckDuckGo Hider/Disguiser Chrome Extension
+        </h3>
+        <p>Switches the logo on DuckDuckGo to the google logo.
+        </p>
+      </div>
+    </div>
+
+    <div class="project-block school">
+      <img src="images/Spotify.png" alt="Spotify ML Project" />
+      <div class="project-text">
+        <h3>Spotify playlist Machine Learning Project</h3>
+        <p>A spotify playlist maker that takes a phrase given by the user and outputs a playlist based on the "vibes" of the phrase. </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- JavaScript for filtering projects -->
+<script>
+  // Set the active button
+
+  function filterProjects(c) {
+    // Declare variables
+    var projectBlocks, btn, i;
+
+    // Get the project blocks and buttons
+    projectBlocks = document.getElementsByClassName("project-block");
+    btn = document.getElementsByClassName("filter-btn");
+
+    // Loop through the project blocks and hide those that don't match the filter
+    for (i = 0; i < projectBlocks.length; i++) {
+      if (c == 'all') {
+        projectBlocks[i].style.display = "inline-flex";
+      } else {
+        projectBlocks[i].style.display = "none";
+        if (projectBlocks[i].classList.contains(c)) {
+          projectBlocks[i].style.display = "inline-flex";
+        }
+      }
+    }
+
+    // Remove the active class from all buttons
+    for (i = 0; i < btn.length; i++) {
+      btn[i].classList.remove("active");
+    }
+
+    // Add the active class to the current button
+    event.currentTarget.classList.add("active");
+  }
+</script>
+
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:sammygusick@gmail.com">sammygusick@gmail.com</a></p>
+      <p>
+        LinkedIn:
+        <a href="https://www.linkedin.com/in/[Your LinkedIn]"
+          >[Your LinkedIn]</a
+        >
+      </p>
+    </div>
+  </div>
+</div>
+  </body>
 </html>
