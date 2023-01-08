@@ -1,74 +1,183 @@
-/* Add your CSS styles here */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-  }
-  .container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-  }
-  .header {
-    background-color: lightgray;
-    text-align: center;
-    padding: 20px;
-  }
-  .header h1 {
-    margin: 0;
-  }
-  .main {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  .card {
-    width: 300px;
-    background-color: white;
-    border-radius: 5px;
-    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
-    margin: 20px;
-    padding: 20px;
-  }
-  .card h2 {
-    margin: 0;
-  }
-  .card p {
-    margin: 20px 0;
-  }
-  .card img {
-    width: 100%;
-    border-radius: 5px 5px 0 0;
-  }
-  .card a {
-    display: block;
-    background-color: lightgray;
-    color: black;
-    padding: 10px;
-    border-radius: 5px;
-    text-align: center;
-    text-decoration: none;
-  }
-  .card a:hover {
-    background-color: gray;
-    color: white;
-  }
-  .footer {
-    background-color: lightgray;
-    text-align: center;
-    padding: 20px;
-  }
-  .footer p {
-    margin: 0;
-  }
+/* Add a responsive layout to the website */
+/* Style the nav */
+#nav {
+  /* Take up a fixed width */
+  width: 200px;
+  /* Add some padding and a background color */
+  height: 100%;
+  padding: 16px;
+  /* Add some styling to the nav links */
+  color: #fff;
+  font-size: 18px;
+  text-decoration: none;
+  /* Stack the nav links vertically */
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
 
-  .fade-in {
-    /* Start with an opacity of 0 */
-    opacity: 0;
-    /* Use the transition property to animate the opacity */
-    transition: opacity 0.5s ease-in;
+  flex-direction: column;
+  /* Add a z-index to make the nav appear above the body */
+  z-index: 1;
+justify-content: flex-start;
+}
+
+#content {
+  margin-left: 300px; /* or any other value to specify the width of the nav element */
+  margin-right: 100px;
+}
+
+
+/* Add your CSS styles here */
+/* Style the body element */
+/* Style the body element */
+body {
+    /* Increase the text size */
+    font-size: 18px;
+    /* Use a professional font */
+    font-family: 'Open Sans', sans-serif;
+      /* Take up the remaining width */
+  width: 100%;
+  /* Add some padding */
+  padding: 16px;
+  color: white;
+  display: flex;
+  background-color: rgb(38, 42, 43);
   }
   
-  /* When the webpage has finished loading, set the opacity to 1 */
-  .fade-in.loaded {
+  /* Style the headings */
+  h1, h2, h3, h4, h5, h6 {
+    /* Increase the heading sizes */
+    font-size: 32px;
+    /* Use a professional font */
+    font-family: 'Roboto', sans-serif;
+    /* Add some margin to the bottom of the headings */
+    margin-bottom: 16px;
+  }
+  
+.animated-text {
+  animation: fadeIn 2s;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
     opacity: 1;
   }
+}
+.highlighted-text {
+  color: #ff0000;
+}
+
+@media (max-width: 600px) {
+  body {
+    width: 100%;
+    margin: 0;
+  }
+  header,
+  main,
+  footer {
+    width: 100%;
+  }
+}
+
+/* Add some styling to the navigation menu */
+nav {
+  background-color: rgba(0, 0, 0, 0.487);
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+nav ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+nav li {
+  margin: 0 10px;
+}
+
+nav a:hover {
+  color: #ccc;
+}
+
+/* Add some hover effects to the navigation menu buttons */
+nav a {
+    color: #fff;
+    width: 100%;
+    text-decoration: none;
+    transition: all 0.2s;
+    margin-bottom: 16px;
+    font-size: 32px;
+  }
+  nav a:hover {
+    color: #ccc;
+    background-color: #444;
+    border-radius: 10px;
+    transform: scale(1.1);
+  }
+  
+  /* Add some active effects to the current navigation menu button */
+  nav a.active {
+    color: #ccc;
+    background-color: #444;
+    border-radius: 10px;
+  }
+  
+
+/* Add some styling to the main content */
+main {
+  margin: 0 20px;
+}
+section {
+  margin: 20px 0;
+}
+
+/* Add some styling to the footer */
+footer {
+  background-color: #333;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+}
+
+#projects, #about, #contact {
+  background-color: rgba(0, 0, 0, 0.487);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 10px;
+  padding: 10px;
+
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.05);
+  }
+}
+
+#nav img:hover {
+  animation: pulse 2s infinite;
+}
+
+
+#nav img {
+  width: 80%; /* Set the width of the image */
+  border-radius: 50%; /* Make the image a circle */
+  margin: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 20px;
+  border-width: 20px;
+  border-color: rgba(0, 0, 0, 0.487);
+}
