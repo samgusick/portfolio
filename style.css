@@ -1,5 +1,10 @@
 /* Add a responsive layout to the website */
 /* Style the nav */
+
+#nav a button {
+  width: 100%;
+  margin: auto;
+}
 #nav {
   /* Take up a fixed width */
   width: 200px;
